@@ -1,0 +1,36 @@
+<section id="contact" class="s-contact target-section">
+
+    <div class="row contact-top">
+        <div class="column lg-12">
+            <p class="h1">Дополнительная информация</p>
+        </div>
+        <ul>
+            {% for add_info in add_information %}
+            <li>
+                {{ add_info.content }}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="row contact-bottom">
+        <div class="column lg-5 md-5 tab-6 stack-on-550 contact-block">
+            <h3 class="text-pretitle">Свяжитесь со мной</h3>
+            <p class="contact-links">
+                {{ info.email }}
+            </p>
+        </div>
+        <div class="column lg-5 md-5 tab-6 stack-on-550 contact-block">
+            <h3 class="text-pretitle">Медиа</h3>
+            <ul class="contact-social">
+
+                {% for media in social_media %}
+
+                <li><a href="{{ media.url }}">{{ media.title }}</a></li>
+
+                {% endfor %}
+
+            </ul>
+        </div>
+    </div>
+
+</section>

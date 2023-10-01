@@ -4,7 +4,7 @@ from application.models import *
 
 
 class InfoAdmin(admin.ModelAdmin):
-    list_display = ["name", "surname", "profession", "age", "email", "habitation", "details", "get_photo"]
+    list_display = ["name", "surname", "file_resume", "profession", "age", "email", "habitation", "details", "get_photo"]
     list_display_links = ["name", "surname"]
 
     def get_photo(self, obj):

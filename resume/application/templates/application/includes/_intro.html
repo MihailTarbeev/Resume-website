@@ -1,0 +1,22 @@
+<section id="intro" class="s-intro target-section">
+
+            <div class="row intro-content wide">
+                <div class="column">
+                    <div class="text-pretitle with-line">Привет, Мир</div>
+                    <h1 class="text-huge-title">
+                        Меня зовут<br>
+                        {{ info.surname }} {{ info.name }}<br>
+                        Я {{ info.profession }}<br>
+                    </h1>
+                </div>
+                <ul class="intro-social">
+
+                    {% for media in social_media %}
+
+                    <li><a href="{{ media.url }}">{{ media.title }}</a></li>
+
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </section>

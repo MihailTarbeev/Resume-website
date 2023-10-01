@@ -10,6 +10,7 @@ class Info(models.Model):
     profession = models.CharField(max_length=150, verbose_name='Профессия')
     habitation = models.CharField(max_length=150, verbose_name='Место проживания')
     email = models.CharField(max_length=150, verbose_name='Почта')
+    file_resume = models.FileField(upload_to='resume', blank=True)
     details = models.TextField(blank=True, verbose_name='Детали')
 
     class Meta:

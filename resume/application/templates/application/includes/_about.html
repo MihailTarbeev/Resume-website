@@ -1,0 +1,127 @@
+<section id="about" class="s-about target-section">
+
+
+    <div class="row about-info wide" data-animate-block>
+
+        <div class="column lg-6 md-12 about-info__pic-block">
+            <img src="{{ info.photo.url }}" class="about-info__pic" data-animate-el>
+        </div>
+
+        <div class="column lg-6 md-12">
+            <div class="about-info__text">
+
+                <h2 class="text-pretitle with-line" data-animate-el>Обо мне</h2>
+                <p class="attention-getter" data-animate-el>
+                    Возраст: <i> {{ info.age }}
+                    {% if info.age|get_digit:"1" == 1 %}
+                    год
+                    {% elif info.age|get_digit:"1" in list_234 %}
+                    года
+                    {% else %}
+                    лет
+                    {% endif %}
+
+                </i>
+                    <br>
+                    Место жительства: <i> {{ info.habitation }}</i><br>
+                    {{ info.details|linebreaksbr }}</p>
+                {% if file_resume %}
+                <a href="{{ info.file_resume.url }}" download class="btn btn--medium u-fullwidth" data-animate-el>
+                    Скачать резюме
+                </a>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row about-timelines" data-animate-block>
+        <div class="column lg-7 tab-12">
+            <h2 class="text-pretitle" data-animate-el>Навыки</h2>
+            <div class="timeline" data-animate-el>
+                {% for skill in skills %}
+                <div class="timeline__block">
+                    <div class="timeline__bullet"></div>
+                    <div class="timeline__header">
+                        <h5 class="timeline__meta">{{ skill.name_skill }}</h5>
+                        <p class="timeline__timeframe">
+                            {% if skill.period %}
+                            Изучаю {{ skill.period }}
+                            <br>
+                            {% endif %}
+                            {% if skill.url %}
+                            <a href="{{ skill.url }}">Ссылка на пет-проект</a>
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="column lg-5 tab-12">
+
+            {% if education %}
+
+            <h2 class="text-pretitle" data-animate-el>Образование</h2>
+
+            {% for study in education %}
+
+            <div class="timeline" data-animate-el>
+
+                <div class="timeline__block">
+                    <div class="timeline__bullet"></div>
+                    <div class="timeline__header">
+                        <h4 class="timeline__title">{{ study.organization }}</h4>
+                        <h5 class="timeline__meta">{{ study.profession }}</h5>
+                        <p class="timeline__timeframe">{{ study.start_date|date:"F Y" }}
+                            {% if study.end_date %}
+                            - {{ study.end_date|date:"F Y" }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="timeline__desc">
+                        <p>{{ study.details|linebreaksbr }}</p>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+                {% endif %}
+
+            </div>
+
+            {% if experience %}
+
+            <h2 class="text-pretitle" data-animate-el>Опыт работы</h2>
+
+            {% for job in experience %}
+
+            <div class="timeline" data-animate-el>
+
+                <div class="timeline__block">
+                    <div class="timeline__bullet"></div>
+                    <div class="timeline__header">
+                        <h4 class="timeline__title">{{ job.company }}</h4>
+                        <h5 class="timeline__meta">{{ job.post }}</h5>
+                        <p class="timeline__timeframe">{{ job.start_date|date:"F Y" }}
+
+                            {% if job.end_date %}
+
+                            - {{ job.end_date|date:"F Y" }}</p>
+
+                        {% endif %}
+
+                    </div>
+                    <div class="timeline__desc">
+                        <p>{{ job.details|linebreaksbr }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+        </div>
+    </div>
+</section>
